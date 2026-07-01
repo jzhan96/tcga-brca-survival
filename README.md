@@ -83,14 +83,58 @@ R version: ≥ 4.3.0
 
 ## Key Results
 
-*(Populated after running scripts on the full dataset)*
+### Kaplan-Meier Analysis
 
-| Comparison | HR (95% CI) | p-value |
-|---|---|---|
-| Luminal B vs Luminal A | — | — |
-| HER2-enriched vs Luminal A | — | — |
-| Basal-like vs Luminal A | — | — |
-| Stage IV vs Stage I | — | — |
+**By PAM50 subtype** (log-rank p = 0.028): Luminal A showed the most favorable long-term survival, while Luminal B declined steeply after 150 months.
+
+![KM curves by PAM50 subtype](plots/km_subtype.png)
+
+**By clinical stage** (log-rank p < 0.0001): clear separation across all four stages, with Stage IV showing rapid early decline.
+
+![KM curves by clinical stage](plots/km_stage.png)
+
+---
+
+### Multivariable Cox Regression
+
+**Model 1: PAM50 subtype** (ref = Luminal A), adjusted for age and stage:
+
+| Comparison | HR | 95% CI | p-value |
+|---|---|---|---|
+| Luminal B vs Luminal A | 1.36 | 0.87–2.12 | 0.173 |
+| HER2-enriched vs Luminal A | 2.58 | 1.47–4.54 | 0.001 |
+| Basal-like vs Luminal A | 1.74 | 1.08–2.80 | 0.024 |
+| Normal-like vs Luminal A | 1.83 | 0.83–4.03 | 0.135 |
+| Age (per year) | 1.04 | 1.03–1.06 | < 0.001 |
+
+![Cox forest plot: subtype](plots/cox_forest_subtype.png)
+
+**Model 2: Clinical stage** (ref = Stage I), adjusted for age and subtype:
+
+| Comparison | HR | 95% CI | p-value |
+|---|---|---|---|
+| Stage II vs Stage I | 1.53 | 0.88–2.66 | 0.136 |
+| Stage III vs Stage I | 3.43 | 1.92–6.13 | < 0.001 |
+| Stage IV vs Stage I | 10.17 | 4.88–21.19 | < 0.001 |
+| Age (per year) | 1.04 | 1.03–1.06 | < 0.001 |
+
+![Cox forest plot: stage](plots/cox_forest_stage.png)
+
+---
+
+### Subgroup Analysis: Luminal A vs Other
+
+Overall HR = 0.60 (95% CI: 0.43–0.84), indicating significantly better survival for Luminal A across all subgroups examined. No significant effect modification was detected (all p-interaction > 0.05).
+
+| Subgroup | Stratum | N | Events | HR | 95% CI | p-value | p-interaction |
+|---|---|---|---|---|---|---|---|
+| Age | < 60 | 559 | 57 | 0.50 | 0.29–0.87 | 0.014 | 0.546 |
+| Age | ≥ 60 | 479 | 81 | 0.63 | 0.41–0.97 | 0.038 | |
+| Stage | I–II | 780 | 80 | 0.67 | 0.43–1.04 | 0.076 | 0.251 |
+| Stage | III–IV | 258 | 58 | 0.50 | 0.29–0.85 | 0.010 | |
+| Sex | Female | 1038 | 138 | 0.57 | 0.41–0.81 | 0.001 | — |
+
+![Subgroup forest plot](plots/forest_subgroup.png)
 
 ---
 

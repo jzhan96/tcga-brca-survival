@@ -1,0 +1,9 @@
+"term","HR","ci_lower","ci_upper","p.value"
+"subtypeLuminal B",1.361,0.873,2.122,0.1732
+"subtypeHER2-enriched",2.583,1.471,4.535,0.001
+"subtypeBasal-like",1.735,1.075,2.8,0.0242
+"subtypeNormal-like",1.827,0.829,4.028,0.1349
+"age_at_index",1.043,1.028,1.057,0
+"stage_groupStage II",1.526,0.876,2.659,0.1359
+"stage_groupStage III",3.427,1.918,6.126,0
+"stage_groupStage IV",10.168,4.878,21.194,0
