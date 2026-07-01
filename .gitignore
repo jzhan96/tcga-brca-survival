@@ -1,0 +1,15 @@
+# Raw data downloaded from TCGA (large files, not versioned)
+data/
+GDCdata/
+*.rda
+*.rds
+*.RData
+
+# R session artifacts
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS
+.DS_Store
+Thumbs.db
